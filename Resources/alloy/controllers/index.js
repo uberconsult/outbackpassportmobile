@@ -1,10 +1,4 @@
 function Controller() {
-    function doClick(e) {
-        var wRegions = Alloy.createController("regions").getView();
-        $.open(wRegions, {
-            animated: !0
-        });
-    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     $model = arguments[0] ? arguments[0].$model : null;
     var $ = this, exports = {}, __defers = {};
@@ -13,23 +7,29 @@ function Controller() {
         id: "index"
     });
     $.addTopLevelView($.__views.index);
-    $.__views.view1 = Ti.UI.createView({
-        id: "view1"
+    $.__views.win1 = Ti.UI.createWindow({
+        id: "win1"
     });
-    $.__views.index.add($.__views.view1);
-    doClick ? $.__views.view1.addEventListener("swipe", doClick) : __defers["$.__views.view1!swipe!doClick"] = !0;
-    $.__views.label = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
-        color: "#000",
-        text: "Outback Passport",
-        id: "label"
+    $.__views.frontpage = Ti.UI.createView({
+        id: "frontpage",
+        backgroundImage: "outback-passport-app-page1.jpg"
     });
-    $.__views.view1.add($.__views.label);
+    $.__views.win1.add($.__views.frontpage);
+    $.__views.navgroup = Ti.UI.iPhone.createNavigationGroup({
+        window: $.__views.win1,
+        id: "navgroup"
+    });
+    $.__views.index.add($.__views.navgroup);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    $.index.open();
-    __defers["$.__views.view1!swipe!doClick"] && $.__views.view1.addEventListener("swipe", doClick);
+    Alloy.CFG.navgroup = $.navgroup;
+    $.win1.addEventListener("swipe", function(e) {
+        $.navgroup.open(Alloy.createController("regions").getView());
+    });
+    $.index.top = -42;
+    Ti.Platform.osname === "iphone" ? $.index.open({
+        transition: Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT
+    }) : $.index.open();
     _.extend($, exports);
 }
 

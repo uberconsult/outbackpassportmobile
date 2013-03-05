@@ -1,7 +1,9 @@
 <Alloy>
-	<Window class="container">
-		<View id="view1" onSwipe="doClick">
-			<Label id="label" >Outback Passport</Label>
-		</View>
+	<Window id="index" class="container" >
+		<NavigationGroup id="navgroup" platform="ios,mobileweb">
+			<Window id="win1">
+				<View id="frontpage" backgroundImage="outback-passport-app-page1.jpg"/>
+			</Window>
+		</NavigationGroup>
 	</Window>
 </Alloy>
