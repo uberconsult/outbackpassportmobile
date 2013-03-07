@@ -1,0 +1,4 @@
+//backgroud colour of the business detail view
+"#businessView": {
+        backgroundColor: "#F3F0EB" 
+}

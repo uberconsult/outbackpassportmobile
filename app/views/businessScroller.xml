@@ -1,0 +1,6 @@
+<Alloy>
+	<Window id="winBizScroller" class="container" >
+		<ScrollableView id="scrBizScroller">
+		</ScrollableView>
+	</Window>
+</Alloy>

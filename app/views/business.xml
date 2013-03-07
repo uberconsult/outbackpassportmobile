@@ -1,0 +1,8 @@
+<Alloy>
+	<View id="businessView" width="100%" height="100%" layout="vertical">
+		<ImageView id="bizImage" width="100%" height="35%" top="0">
+		<ScrollView id="scrContent" top="15" left="20" width="90%" height="75%" layout="vertical" showVerticalScrollIndicator="true">
+			
+		</ScrollView>
+	</View>
+</Alloy>
