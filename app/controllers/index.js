@@ -7,7 +7,10 @@ if (OS_IOS || OS_MOBILEWEB) {
 	});
 }
 
-$.index.top = - 42;
+Alloy.CFG.navgroup.top = -43;
+//Alloy.CFG.navgroup.top = 0;
+
+//$.win1.barColor = "000000";
 
 if (Ti.Platform.osname === 'iphone')
 	$.index.open({

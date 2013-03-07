@@ -26,7 +26,7 @@ function Controller() {
     $.win1.addEventListener("swipe", function(e) {
         $.navgroup.open(Alloy.createController("regions").getView());
     });
-    $.index.top = -42;
+    Alloy.CFG.navgroup.top = -43;
     Ti.Platform.osname === "iphone" ? $.index.open({
         transition: Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT
     }) : $.index.open();

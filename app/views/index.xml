@@ -1,6 +1,6 @@
 <Alloy>
 	<Window id="index" class="container" >
-		<NavigationGroup id="navgroup" platform="ios,mobileweb">
+		<NavigationGroup id="navgroup" platform="ios,mobileweb" >
 			<Window id="win1">
 				<View id="frontpage" backgroundImage="outback-passport-app-page1.jpg"/>
 			</Window>
