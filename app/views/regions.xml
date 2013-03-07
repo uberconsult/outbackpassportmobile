@@ -1,5 +1,22 @@
 <Alloy>
-	<View class="container">
-		<Label id="label">Regions List</Label>
-	</View>
+	<Window id="regions">
+		<View backgroundImage="background-right-image.jpg">
+			<ImageView id="logo" image="outback-passport-logo.png" top="30" height="80"/>
+			
+			<ImageView id="dropdown" image="region-select-dropdown.png" top="135" height="42"/>
+			<Label top="142" id="region">Please select region</Label>
+
+			<ImageView id="button" image="view-business-button.png" bottom="20" height="42"/>
+			<Label bottom="32">View Business Listing</Label>
+			
+			<Picker id="picker" selectionIndicator="true" useSpinner="true" visible="false" bottom="0">
+				<PickerColumn id="column1">
+					<PickerRow title="Bananas"/>
+					<PickerRow title="Strawberries"/>
+					<PickerRow title="Mangos"/>
+					<PickerRow title="Grapes"/>
+				</PickerColumn>
+			</Picker>
+		</View>
+	</Window>
 </Alloy>
