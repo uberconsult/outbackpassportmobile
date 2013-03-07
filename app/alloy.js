@@ -9,3 +9,7 @@
 // object. For example:
 //
 // Alloy.Globals.someGlobalFunction = function(){};
+
+
+// Copying the database to the phone
+var db = Ti.Database.install('/db/outback_passport.db', 'outback_passport');
