@@ -1,0 +1,40 @@
+<Alloy>
+	<Window id="businessList">
+		<View id="resultBar" top="0" left="0" height="19" backgroundColor="orange">
+			<Label id="result" left="1" top="2">10 of 168 results</Label>
+		</View>
+		<TableView id="table" top="19">
+			<TableViewRow class="businessRow">
+				<ImageView class="preview" image="historic-daydream-mine-image.jpg"/>
+				<View id="view" height="20">
+					<Label>Apple</Label>
+				</View>
+			</TableViewRow>
+			<TableViewRow class="businessRow">
+				<View id="view" height="20">
+					<Label>Bananas</Label>
+				</View>
+			</TableViewRow>
+			<TableViewRow class="businessRow">
+				<View id="view" height="20">
+					<Label>Carrots</Label>
+				</View>
+			</TableViewRow>
+			<TableViewRow class="businessRow">
+				<View id="view" height="20">
+					<Label>Potatoes</Label>
+				</View>
+			</TableViewRow>
+			<TableViewRow class="businessRow">
+				<View id="view" height="20">
+					<Label>Cod</Label>
+				</View>
+			</TableViewRow>
+			<TableViewRow class="businessRow">
+				<View id="view" height="20">
+					<Label>Haddock</Label>
+				</View>
+			</TableViewRow>
+		</TableView>
+	</Window>
+</Alloy>

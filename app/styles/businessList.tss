@@ -1,0 +1,39 @@
+".container": { backgroundColor:"white"
+}
+
+"#businessList": {
+	barColor: "#000"
+}
+
+"#resultBar": {
+	backgroundImage:'search-result-bar.png'
+}
+
+"#result": { color: '#fff',
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	backgroundColor: 'transparent',
+	font: { fontFamily:'Arial',
+		fontSize: '12dp',
+		fontStyle: 'normal',
+		fontWeight: 'bold',
+		shadowOffset: {x:1,y:0},
+		shadowColor: '#000'
+	}
+}
+
+".businessRow": {
+	backgroundImage:'business-list-bar.png',
+	height: 70,
+	left: 0
+}
+
+".preview":{
+	borderColor: '#000',
+	borderWidth: 1,
+	height: 58,
+	width: 100,
+	top: 6,
+	left: 6
+}
+
+
