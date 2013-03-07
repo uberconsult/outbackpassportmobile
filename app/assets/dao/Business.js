@@ -57,12 +57,12 @@ Business.prototype.getHolidayOpHours = function() {
 	return this.holidayOpHours;
 }
 
-Business.prototype.getBizImg = function() {
-	return this.bizImg;
+Business.prototype.getBizImgDir = function() {
+	return "/images/" + this.bizImg;
 }
 
-Business.prototype.getLogoImg = function() {
-	return this.logoImg;
+Business.prototype.getLogoImgDir = function() {
+	return "/images/" + this.logoImg;
 }
 
 Business.prototype.toString = function() {
@@ -71,5 +71,6 @@ Business.prototype.toString = function() {
 			+ ', ' + this.opHours + ', ' + this.holidayOpHours + ', ' + this.bizImg + ', ' 
 			+ this.logoImg + ')';
 }
+
 
 module.exports = Business;
