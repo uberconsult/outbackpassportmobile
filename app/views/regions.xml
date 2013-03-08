@@ -7,12 +7,6 @@
 			<ImageView id="button" image="view-business-button.png" bottom="20" height="42"/>
 			<Label bottom="32">View Business Listing</Label>
 			<Picker id="picker" selectionIndicator="true" useSpinner="true" visible="false" bottom="0">
-				<PickerColumn id="column1">
-					<PickerRow title="Broken Hill"/>
-					<PickerRow title="Lightning Ride"/>
-					<PickerRow title="Bourke"/>
-					<PickerRow title="Armidale"/>
-				</PickerColumn>
 			</Picker>
 		</View>
 	</Window>
