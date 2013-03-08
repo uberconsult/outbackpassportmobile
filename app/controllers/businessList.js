@@ -2,141 +2,141 @@ Alloy.CFG.navgroup.top = 0;
 
 var businessDAO = require('/dao/businessDAO');
 var businessArray = businessDAO.getBusinessesByRegionId(Alloy.CFG.regionId);
-Ti.API.info('TEST NIC ' + businessArray.length);
 
-var tableData = [];
+function populateList(businessArray) {
+	var tableData = [];
 
-for (var i = 0, ilen = businessArray.length; i < ilen; i++) {
-	Ti.API.info('TEST NIC : loop ' + i);
-	var row = Ti.UI.createTableViewRow({
-		objName : 'row',
-		objId : businessArray[i].getId(),
-		touchEnabled : true,
-		backgroundImage : 'business-list-bar.png',
-		selectedBackgroundImage : 'business-list-bar-over.png',
-		height : 70
-	});
+	for (var i = 0, ilen = businessArray.length; i < ilen; i++) {
 
-	row.addEventListener('click', function(e) {
-		/*
-		var bizScrollerController = Alloy.createController('businessScroller');
-		bizScrollerController.selectViewByBizId(businessArray[e.index].getId());
-		Alloy.CFG.navgroup.open(bizScrollerController.getView());
-		*/
-		Alloy.CFG.navgroup.top = 0;
-		Alloy.CFG.navgroup.open(Alloy.createController('testNic').getView());
-		Alloy.CFG.navgroup.top = 0;
-	});
+		var row = Ti.UI.createTableViewRow({
+			objName : 'row',
+			objId : businessArray[i].getId(),
+			touchEnabled : true,
+			backgroundImage : 'business-list-bar.png',
+			selectedBackgroundImage : 'business-list-bar-over.png',
+			height : 70
+		});
 
-	var image = Ti.UI.createImageView({
-		className : 'preview',
-		image : businessArray[i].getBizImgDir(),
-		left : 6,
-		top : 6,
-		borderColor : '#000',
-		borderWidth : 1,
-		height : 58,
-		width : 100
-	});
+		row.addEventListener('click', function(e) {
+			
+			 var bizScrollerController = Alloy.createController('businessScroller');
+			 bizScrollerController.selectViewByBizId(businessArray[e.index].getId());
+			 Alloy.CFG.navgroup.open(bizScrollerController.getView());
+			//Alloy.CFG.navgroup.open(Alloy.createController('testNic').getView());
+		});
 
-	row.add(image);
+		var image = Ti.UI.createImageView({
+			className : 'preview',
+			image : businessArray[i].getBizImgDir(),
+			left : 6,
+			top : 6,
+			borderColor : '#000',
+			borderWidth : 1,
+			height : 58,
+			width : 100
+		});
 
-	var heading = Ti.UI.createLabel({
-		color : '#000',
-		font : {
-			fontFamily : 'AmericanTypewriter',
-			fontSize : 17,
-			fontWeight : 'bold'
-		},
-		text : businessArray[i].getName(),
-		textAlign : Ti.UI.TEXT_ALIGNMENT_LEFT,
-		verticalAlign : Ti.UI.TEXT_VERTICAL_ALIGNMENT_TOP,
-		top : 5,
-		left : 114,
-		width : 180,
-		height : 18
-	});
+		row.add(image);
 
-	row.add(heading);
+		var heading = Ti.UI.createLabel({
+			color : '#000',
+			font : {
+				fontFamily : 'AmericanTypewriter',
+				fontSize : 17,
+				fontWeight : 'bold'
+			},
+			text : businessArray[i].getName(),
+			textAlign : Ti.UI.TEXT_ALIGNMENT_LEFT,
+			verticalAlign : Ti.UI.TEXT_VERTICAL_ALIGNMENT_TOP,
+			top : 5,
+			left : 114,
+			width : 180,
+			height : 18
+		});
 
-	var address1 = Ti.UI.createLabel({
-		color : '#333',
-		font : {
-			fontFamily : 'Arial',
-			fontSize : 10,
-			fontWeight : 'normal'
-		},
-		text : businessArray[i].getAdd1(),
-		textAlign : Ti.UI.TEXT_ALIGNMENT_LEFT,
-		top : 25,
-		left : 114,
-		width : 180,
-		height : 12
-	});
+		row.add(heading);
 
-	row.add(address1);
+		var address1 = Ti.UI.createLabel({
+			color : '#333',
+			font : {
+				fontFamily : 'Arial',
+				fontSize : 10,
+				fontWeight : 'normal'
+			},
+			text : businessArray[i].getAdd1(),
+			textAlign : Ti.UI.TEXT_ALIGNMENT_LEFT,
+			top : 25,
+			left : 114,
+			width : 180,
+			height : 12
+		});
 
-	var address2 = Ti.UI.createLabel({
-		color : '#333',
-		font : {
-			fontFamily : 'Arial',
-			fontSize : 10,
-			fontWeight : 'normal'
-		},
-		text : businessArray[i].getAdd2(),
-		textAlign : Ti.UI.TEXT_ALIGNMENT_LEFT,
-		top : 37,
-		left : 114,
-		width : 180,
-		height : 12
-	});
+		row.add(address1);
 
-	row.add(address2);
+		var address2 = Ti.UI.createLabel({
+			color : '#333',
+			font : {
+				fontFamily : 'Arial',
+				fontSize : 10,
+				fontWeight : 'normal'
+			},
+			text : businessArray[i].getAdd2(),
+			textAlign : Ti.UI.TEXT_ALIGNMENT_LEFT,
+			top : 37,
+			left : 114,
+			width : 180,
+			height : 12
+		});
 
-	var phoneLabel = Ti.UI.createLabel({
-		color : '#ff6200',
-		font : {
-			fontFamily : 'Arial',
-			fontSize : 10,
-			fontWeight : 'bold'
-		},
-		text : 'Phone:',
-		textAlign : Ti.UI.TEXT_ALIGNMENT_LEFT,
-		top : 52,
-		left : 114,
-		width : 40,
-		height : 12
-	});
+		row.add(address2);
 
-	row.add(phoneLabel);
+		var phoneLabel = Ti.UI.createLabel({
+			color : '#ff6200',
+			font : {
+				fontFamily : 'Arial',
+				fontSize : 10,
+				fontWeight : 'bold'
+			},
+			text : 'Phone:',
+			textAlign : Ti.UI.TEXT_ALIGNMENT_LEFT,
+			top : 52,
+			left : 114,
+			width : 40,
+			height : 12
+		});
 
-	var phone = Ti.UI.createLabel({
-		color : '#000',
-		font : {
-			fontFamily : 'Arial',
-			fontSize : 10,
-			fontWeight : 'normal'
-		},
-		text : businessArray[i].getPhone(),
-		textAlign : Ti.UI.TEXT_ALIGNMENT_LEFT,
-		top : 52,
-		left : 152,
-		width : 140,
-		height : 12
-	});
+		row.add(phoneLabel);
 
-	row.add(phone);
+		var phone = Ti.UI.createLabel({
+			color : '#000',
+			font : {
+				fontFamily : 'Arial',
+				fontSize : 10,
+				fontWeight : 'normal'
+			},
+			text : businessArray[i].getPhone(),
+			textAlign : Ti.UI.TEXT_ALIGNMENT_LEFT,
+			top : 52,
+			left : 152,
+			width : 140,
+			height : 12
+		});
 
-	tableData.push(row);
+		row.add(phone);
+
+		tableData.push(row);
+	}
+
+	if (tableData.length == 0) {
+		$.table.setVisible(false);
+		$.result.setText('no data');
+	} else {
+		$.table.setData(tableData);
+		$.result.setText(businessArray.length + ' results');
+	}
 }
 
-if (tableData.length == 0) {
-	$.table.setVisible(false);
-	$.result.setText('no data');
-} else {
-	$.table.setData(tableData);
-	$.result.setText(businessArray.length + ' results');
-}
+populateList(businessArray);
 
 /*
  var button = Ti.UI.createButton({
@@ -144,9 +144,6 @@ if (tableData.length == 0) {
  style:Titanium.UI.iPhone.SystemButtonStyle.BORDERED
  });
  */
-$.businessList.addEventListener('blur', function(e) {
-	Alloy.CFG.navgroup.top = -43;
-});
 
 var wen = Titanium.UI.createButton({
 	titleId : 'wen',
@@ -163,11 +160,17 @@ var tf = Titanium.UI.createTextField({
 	backgroundImage : 'search-button-field.png',
 	width : 230,
 	font : {
-		fontSize : 13
+		fontSize : 15
 	},
 	color : '#333',
-	paddingLeft : 25,
+	paddingLeft : 30,
+	returnKeyType : Titanium.UI.RETURNKEY_SEARCH,
 	borderStyle : Titanium.UI.INPUT_BORDERSTYLE_NONE
+});
+
+tf.addEventListener('change', function(e) {
+	Ti.API.info('TEST NIC ' + tf.getValue());
+	populateList(businessDAO.getBusinessesByName(tf.getValue()));
 });
 
 var flexSpace = Titanium.UI.createButton({
@@ -188,14 +191,22 @@ var toolbarSearch = Titanium.UI.iOS.createToolbar({
 });
 
 cancel.addEventListener('click', function(e) {
-	$.businessList.remove(toolbarSearch);
+	Alloy.CFG.mainWin.remove(toolbarSearch);
+	populateList(businessDAO.getBusinessesByRegionId(Alloy.CFG.regionId));
 });
 
 wen.addEventListener('click', function(e) {
-	$.businessList.add(toolbarSearch);
+	Alloy.CFG.mainWin.add(toolbarSearch);
+	tf.focus();
 });
 
 $.businessList.setRightNavButton(wen);
 
 $.businessList.setTitle(Alloy.CFG.regionName);
-// Dynamic Scrolling: load list when user is scrolling down and reach the end of the page
+
+$.businessList.addEventListener('blur', function(e) {
+	//Alloy.CFG.mainWin.remove(toolbarSearch);
+	if (!Alloy.CFG.moveforward) {
+		Alloy.CFG.navgroup.top = -43;
+	}
+});

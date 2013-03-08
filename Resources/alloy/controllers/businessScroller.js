@@ -4,7 +4,7 @@ function Controller() {
     var $ = this, exports = {}, __defers = {};
     $.__views.winBizScroller = Ti.UI.createWindow({
         id: "winBizScroller",
-        top: "43"
+        title: "Details"
     });
     $.addTopLevelView($.__views.winBizScroller);
     var __alloyId0 = [];
@@ -15,7 +15,6 @@ function Controller() {
     $.__views.winBizScroller.add($.__views.scrBizScroller);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    Alloy.CFG.navgroup.top = 0;
     exports.populateViewWithArray = function(regionsArray) {
         var len = regionsArray.length;
         for (var i = 0; i < len; i++) {
@@ -44,6 +43,11 @@ function Controller() {
         }
         $.scrBizScroller.scrollToView(showViewIndex);
     };
+    Alloy.CFG.moveforward = !0;
+    $.winBizScroller.addEventListener("blur", function(e) {
+        Alloy.CFG.moveforward = !1;
+    });
+    $.winBizScroller.barColor = "#000";
     _.extend($, exports);
 }
 

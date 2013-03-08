@@ -17,6 +17,10 @@ function Controller() {
     $.__views.__alloyId4.add($.__views.__alloyId5);
     exports.destroy = function() {};
     _.extend($, $.__views);
+    Alloy.CFG.moveforward = !0;
+    $.testnic.addEventListener("blur", function(e) {
+        Alloy.CFG.moveforward = !1;
+    });
     _.extend($, exports);
 }
 

@@ -22,11 +22,13 @@ function Controller() {
     $.__views.index.add($.__views.navgroup);
     exports.destroy = function() {};
     _.extend($, $.__views);
+    Alloy.CFG.mainWin = $.index;
     Alloy.CFG.navgroup = $.navgroup;
     $.win1.addEventListener("swipe", function(e) {
         $.navgroup.open(Alloy.createController("regions").getView());
     });
     Alloy.CFG.navgroup.top = -43;
+    $.index.barColor = "#000";
     Ti.Platform.osname === "iphone" ? $.index.open({
         transition: Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT
     }) : $.index.open();
