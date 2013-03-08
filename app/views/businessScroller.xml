@@ -1,5 +1,5 @@
 <Alloy>
-	<Window id="winBizScroller" class="container" >
+	<Window id="winBizScroller" top="43">
 		<ScrollableView id="scrBizScroller">
 		</ScrollableView>
 	</Window>

@@ -1,4 +1,47 @@
 //backgroud colour of the business detail view
 "#businessView": {
-        backgroundColor: "#F3F0EB" 
+    backgroundColor: "#F3F0EB" 
+}
+
+"#scrContent": {
+    backgroundColor: "#F3F0EB" 
+}
+
+"#lblTitile": {
+    textAlign: "left",
+    backgroundColor: 'transparent',
+    font: {
+        fontFamily:'Arial',
+        fontSize: '20dp',
+        fontStyle: 'normal',
+        fontWeight: 'bold'
+    }
+}
+
+
+".txtData": {
+   top: '5',
+   left: '0',
+   textAlign: "left",
+   backgroundColor: 'transparent',
+   font: {
+        fontFamily:'Helvetica',
+        fontSize: '14dp',
+        fontStyle: 'normal',
+        fontWeight: 'normal'
+    }
+}
+
+".txtLabel": {
+	top: '10',
+	left: '0',
+	color: '#F59629',
+	textAlign: "left",
+    backgroundColor: 'transparent',
+    font: {
+        fontFamily:'Helvetica',
+        fontSize: '15dp',
+        fontStyle: 'normal',
+        fontWeight: 'normal'
+    }
 }

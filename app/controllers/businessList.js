@@ -18,8 +18,14 @@ for (var i = 0, ilen = businessArray.length; i < ilen; i++) {
 	});
 
 	row.addEventListener('click', function(e) {
-		Alloy.CFG.businessId = businessArray[e.index].getId();
-		//TODO: open next controller : businesss details
+		/*
+		var bizScrollerController = Alloy.createController('businessScroller');
+		bizScrollerController.selectViewByBizId(businessArray[e.index].getId());
+		Alloy.CFG.navgroup.open(bizScrollerController.getView());
+		*/
+		Alloy.CFG.navgroup.top = 0;
+		Alloy.CFG.navgroup.open(Alloy.createController('testNic').getView());
+		Alloy.CFG.navgroup.top = 0;
 	});
 
 	var image = Ti.UI.createImageView({

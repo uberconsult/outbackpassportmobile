@@ -3,8 +3,8 @@ function Controller() {
     $model = arguments[0] ? arguments[0].$model : null;
     var $ = this, exports = {}, __defers = {};
     $.__views.winBizScroller = Ti.UI.createWindow({
-        backgroundColor: "white",
-        id: "winBizScroller"
+        id: "winBizScroller",
+        top: "43"
     });
     $.addTopLevelView($.__views.winBizScroller);
     var __alloyId0 = [];
@@ -15,6 +15,7 @@ function Controller() {
     $.__views.winBizScroller.add($.__views.scrBizScroller);
     exports.destroy = function() {};
     _.extend($, $.__views);
+    Alloy.CFG.navgroup.top = 0;
     exports.populateViewWithArray = function(regionsArray) {
         var len = regionsArray.length;
         for (var i = 0; i < len; i++) {
@@ -22,6 +23,26 @@ function Controller() {
             bizController.populateView(bizArray[i]);
             $.scrBizScroller.addView(bizController.getView());
         }
+    };
+    var populateViewAndShow = function(bizArray, bizId) {
+        var len = bizArray.length, showViewIndex = 0;
+        for (var i = 0; i < len; i++) {
+            var bizController = Alloy.createController("business");
+            bizController.populateView(bizArray[i]);
+            $.scrBizScroller.addView(bizController.getView());
+            bizArray[i].getId == bizId && (showViewIndex = i);
+        }
+        $.scrBizScroller.currentPage = showViewIndex;
+    };
+    exports.selectViewByBizId = function(bizId) {
+        var businessDAO = require("/dao/businessDAO"), businessArray = businessDAO.getBusinessesByBizId(bizId), len = businessArray.length, showViewIndex = 0;
+        for (var i = 0; i < len; i++) {
+            var bizController = Alloy.createController("business");
+            bizController.populateView(businessArray[i]);
+            $.scrBizScroller.addView(bizController.getView());
+            bizId == businessArray[i].getId() && (showViewIndex = i);
+        }
+        $.scrBizScroller.scrollToView(showViewIndex);
     };
     _.extend($, exports);
 }

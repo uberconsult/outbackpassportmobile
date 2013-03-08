@@ -59,7 +59,9 @@ function Controller() {
             height: 70
         });
         row.addEventListener("click", function(e) {
-            Alloy.CFG.businessId = businessArray[e.index].getId();
+            Alloy.CFG.navgroup.top = 0;
+            Alloy.CFG.navgroup.open(Alloy.createController("testNic").getView());
+            Alloy.CFG.navgroup.top = 0;
         });
         var image = Ti.UI.createImageView({
             className: "preview",
@@ -176,7 +178,7 @@ function Controller() {
             fontSize: 13
         },
         color: "#333",
-        paddingLeft: 20,
+        paddingLeft: 25,
         borderStyle: Titanium.UI.INPUT_BORDERSTYLE_NONE
     }), flexSpace = Titanium.UI.createButton({
         systemButton: Titanium.UI.iPhone.SystemButton.FLEXIBLE_SPACE

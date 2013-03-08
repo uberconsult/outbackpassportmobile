@@ -1,0 +1,7 @@
+<Alloy>
+	<Window id="testnic">
+		<View>
+			<Label>Test Nic</Label>
+		</View>
+	</Window>
+</Alloy>
