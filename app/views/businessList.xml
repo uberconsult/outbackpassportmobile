@@ -1,8 +1,0 @@
-<Alloy>
-	<Window id="businessList">
-		<View id="resultBar" top="0" left="0" height="19" backgroundColor="orange">
-			<Label id="result" left="6" top="2">10 of 168 results</Label>
-		</View>
-		<TableView id="table" top="19"/>
-	</Window>
-</Alloy>
